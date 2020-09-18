@@ -24,7 +24,7 @@ public class SourceController {
         this.sourceService = sourceService;
     }
 
-    @GetMapping(path = "{col}&{row}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "{row}&{col}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SourceDTO>> getAllByTaxGroup(@PathVariable String col, @PathVariable String row){
         return new ResponseEntity(sourceService.makePivotTable(row, col), HttpStatus.OK);
     }

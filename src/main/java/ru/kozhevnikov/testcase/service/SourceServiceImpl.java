@@ -33,8 +33,8 @@ public class SourceServiceImpl implements SourceService {
         Query query = em.createNativeQuery(firstPart + row + secondPart + col + therdPart + row + fourthPart + col, SourceStatistic.class);
         List<SourceStatistic> resultList = query.getResultList();
         List<SourceDTO> collect = resultList.stream().map(source -> SourceDTO.builder()
-                .row(source.getCol_r())
-                .col(source.getRow_r())
+                .row(source.getRow_r())
+                .col(source.getCol_r())
                 .val(source.getVal_r())
                 .build()).collect(Collectors.toList());
         return collect;
